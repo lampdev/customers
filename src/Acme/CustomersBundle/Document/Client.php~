@@ -1,0 +1,74 @@
+<?php
+
+namespace Acme\CustomersBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @MongoDB\Document
+ */
+class Client
+{
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $login;
+
+    /**
+     * @MongoDB\ReferenceMany(targetDocument="Report", mappedBy="user")
+     * @var Report[]
+     */
+    private $reports;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
+
+    /**
+     * @MongoDB\String
+     */
+    protected $password;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $name;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $surname;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $email;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $skype;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $linkedin; 
+
+    /**
+     * @MongoDB\String
+     */
+    protected $fb; 
+
+    /**
+     * @MongoDB\String
+     */
+    protected $site;
+
+}

@@ -1,0 +1,37 @@
+<?php
+
+namespace Acme\CustomersBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * @MongoDB\Document
+ */
+class Report
+{    
+    /**
+     * @MongoDB\Id
+     */
+    protected $id;
+
+    /**
+     * @var
+     * @MongoDB\ReferenceOne(targetDocument="Client", inversedBy="reports")
+     */
+    private $user;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $description;
+       
+    /**
+     * @MongoDB\File
+     */
+    protected $docs;
+
+    /**
+     * @MongoDB\Boolean
+     */
+    protected $topublic;
+}

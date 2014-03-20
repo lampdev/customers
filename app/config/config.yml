@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -80,7 +80,7 @@ doctrine_mongodb:
         default:
             server: mongodb://localhost:27017
             options: {}
-    default_database: test_database
+    default_database: customersbase
     document_managers:
         default:
             auto_mapping: true
@@ -91,3 +91,34 @@ services:
         tags:
             - { name: sonata.admin, manager_type: doctrine_mongodb, group: Tables, label: Users }
         arguments: [ null, Acme\CustomersBundle\Document\Client, SonataAdminBundle:CRUD ]
+    admin.report:
+        class: Acme\CustomersBundle\Admin\ReportAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: Tables, label: Reports }
+        arguments: [ null, Acme\CustomersBundle\Document\Report, SonataAdminBundle:CRUD ]
+
+    admin.role:
+        class: Acme\CustomersBundle\Admin\RoleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: Tables, label: Roles }
+        arguments: [ null, Acme\CustomersBundle\Document\Role, SonataAdminBundle:CRUD ]
+
+iphp_file_store:
+    mappings:
+       report:
+           upload_dir:  %kernel.root_dir%/../web/docs
+           upload_path: /docs
+           directory_namer:
+               date:
+                  params: { field : date, depth : month }
+           namer: false
+
+fos_user:
+    db_driver: mongodb
+    firewall_name: main
+    user_class: Acme\CustomersBundle\Document\Client
+    registration:
+        form:
+            type: acme_customers_registration
+    # form:
+    #     type: acme_customers_registration

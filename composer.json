@@ -22,7 +22,10 @@
         "doctrine/mongodb-odm": "1.0.*@dev",
         "doctrine/mongodb-odm-bundle": "3.0.*@dev",
 	"sonata-project/doctrine-mongodb-admin-bundle": "2.2.*@dev",
-	"mopa/bootstrap-bundle": "3.*@dev"
+	"mopa/bootstrap-bundle": "3.*@dev",
+        "iphp/filestore-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "willdurand/propel-typehintable-behavior": "~1.0"
     },
     "scripts": {
         "post-install-cmd": [

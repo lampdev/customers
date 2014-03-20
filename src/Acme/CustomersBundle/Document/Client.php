@@ -2,23 +2,24 @@
 
 namespace Acme\CustomersBundle\Document;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @MongoDB\Document
  */
-class Client
+class Client extends BaseUser
 {
     /**
-     * @MongoDB\Id
+     * @MongoDB\Id(strategy="auto")
      */
     protected $id;
 
     /**
      * @MongoDB\String
      */
-    protected $login;
+    protected $username;
 
     /**
      * @MongoDB\ReferenceMany(targetDocument="Report", mappedBy="user")
@@ -26,6 +27,12 @@ class Client
      */
     private $reports;
 
+
+
+    public function __toString() {
+        return $this->username;
+    }
+    
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -71,7 +78,6 @@ class Client
      */
     protected $site;
 
-
     /**
      * Get id
      *
@@ -83,25 +89,25 @@ class Client
     }
 
     /**
-     * Set login
+     * Set username
      *
-     * @param string $login
+     * @param string $username
      * @return self
      */
-    public function setLogin($login)
+    public function setUsername($username)
     {
-        $this->login = $login;
+        $this->username = $username;
         return $this;
     }
 
     /**
-     * Get login
+     * Get username
      *
-     * @return string $login
+     * @return string $username
      */
-    public function getLogin()
+    public function getUsername()
     {
-        return $this->login;
+        return $this->username;
     }
 
     /**
@@ -269,7 +275,7 @@ class Client
     /**
      * Set fb
      *
-     * @param string $fb
+     * @param string $fbF
      * @return self
      */
     public function setFb($fb)
@@ -309,4 +315,5 @@ class Client
     {
         return $this->site;
     }
+
 }

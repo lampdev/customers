@@ -2,6 +2,17 @@ parameters:
 #    acme_customers.example.class: Acme\CustomersBundle\Example
 
 services:
+  acme_customers.form.type.registration:
+    class: Acme\CustomersBundle\Form\Type\RegistrationFormType
+    arguments: [%fos_user.model.user.class%]
+    tags:
+        - { name: form.type, alias: acme_customers_registration }
+
+  # vn_user.form.handler.profile:
+  #   class: Vn\UserBundle\Form\Handler\ProfileFormHandler
+  #   arguments: ["@fos_user.profile.form", "@request", "@fos_user.user_manager"]
+  #   scope: request
+  #   public: false 
 #    acme_customers.example:
 #        class: %acme_customers.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

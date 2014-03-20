@@ -1,0 +1,59 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+{{ form_widget(form) }}
+<!--   <div>
+    	<label for='fos_user_registration_form_name' class='require'>Your name</label>
+    	{{ form_widget(form.name) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_surname' class='require'>Surname</label>
+    	{{ form_widget(form.surname) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_username' class='require'>Username</label>
+    	{{ form_widget(form.username) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_email' class='require'>Email</label>
+    	{{ form_widget(form.email) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_plainPassword_first' class='require'>Password</label>
+    	{{ form_widget(form.plainPassword.first) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_plainPassword_second' class='require'>Retry password</label>
+    	{{ form_widget(form.plainPassword.second) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_skype' class='require'>Skype</label>
+    	{{ form_widget(form.skype) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_linkedin' class='require'>LinkedIn</label>
+    	{{ form_widget(form.linkedin) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_fb' class='require'>FaceBook</label>
+    	{{ form_widget(form.fb) }}
+    </div>
+
+    <div>
+    	<label for='fos_user_registration_form_site' class='require'>Web-site</label>
+    	{{ form_widget(form.site) }}
+    </div> 
+    -->
+
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" name='123' />
+    </div> 
+</form>

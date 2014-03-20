@@ -26,7 +26,7 @@ class Report
     protected $description;
        
     /**
-     * @MongoDB\File
+     * @MongoDB\String
      */
     protected $docs;
 
@@ -92,7 +92,7 @@ class Report
     /**
      * Set docs
      *
-     * @param file $docs
+     * @param string $docs
      * @return self
      */
     public function setDocs($docs)
@@ -104,7 +104,7 @@ class Report
     /**
      * Get docs
      *
-     * @return file $docs
+     * @return string $docs
      */
     public function getDocs()
     {

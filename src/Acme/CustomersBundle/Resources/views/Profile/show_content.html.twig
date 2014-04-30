@@ -1,6 +1,35 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-<div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>
+<span class="modal-content" style="padding:15px;  display:inline-block">
+    <div class="fos_user_user_show">
+        <table class="table">
+            <tr>
+                <th class="col-md-4">Name: </th><th class="col-md-8">{{ user.name }}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">Surname:  </th><th class="col-md-8">{{ user.surname }}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">{{ 'profile.show.username'|trans }}:  </th><th class="col-md-8">{{ user.username }}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">{{ 'profile.show.email'|trans }}:  </th><th class="col-md-8">{{ user.email }}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">Skype:  </th><th class="col-md-8">{% if user.skype %} {{user.skype}} {% else %} none {% endif %}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">LinkedIn:  </th><th class="col-md-8">{% if user.linkedin %} {{user.linkedin}} {% else %} none {% endif %}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">FaceBook:  </th><th class="col-md-8">{% if user.fb %} {{user.fb}} {% else %} none {% endif %}</th>
+            </tr>
+            <tr>
+                <th class="col-md-4">Web-site:  </th><th class="col-md-8">{% if user.site %} {{user.site}} {% else %} none {% endif %}</th>
+            </tr>
+        </table>
+        <div>
+            <input value="Edit" onclick="location.href='edit'" type="button" class="btn btn-default">
+            <input value="Change password" onclick="location.href='change-password'" type="button" class="btn btn-default>
+        </div>
+    </div>
+</span>

@@ -8,6 +8,17 @@ services:
     tags:
         - { name: form.type, alias: acme_customers_registration }
 
+  acme_customers.form.type.profile:
+    class: Acme\CustomersBundle\Form\Type\ProfileFormType
+    arguments: [%fos_user.model.user.class%]
+    tags:
+        - { name: form.type, alias: acme_customers_profile }
+
+  acme_customers.form.type.change_password:
+    class: Acme\CustomersBundle\Form\Type\ChangePasswordFormType
+    arguments: [%fos_user.model.user.class%]
+    tags:
+        - { name: form.type, alias: acme_customers_change_password }
   # vn_user.form.handler.profile:
   #   class: Vn\UserBundle\Form\Handler\ProfileFormHandler
   #   arguments: ["@fos_user.profile.form", "@request", "@fos_user.user_manager"]

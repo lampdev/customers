@@ -1,3 +1,11 @@
 acme_customers_homepage:
     pattern:  /
     defaults: { _controller: AcmeCustomersBundle:Default:index }
+
+acme_customers:
+    pattern:  /sendreport
+    defaults: { _controller: AcmeCustomersBundle:SendReport:index }
+
+acme_customers_new:
+    pattern:  /sendreport/ok
+    defaults: { _controller: AcmeCustomersBundle:SendReport:ok }

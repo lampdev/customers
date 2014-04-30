@@ -21,17 +21,6 @@ class Client extends BaseUser
      */
     protected $username;
 
-    /**
-     * @MongoDB\ReferenceMany(targetDocument="Report", mappedBy="user")
-     * @var Report[]
-     */
-    private $reports;
-
-    /**
-     * @MongoDB\Collection
-     */
-    protected $roles = array();
-
 
     public function __toString() {
         return $this->username;
@@ -112,36 +101,6 @@ class Client extends BaseUser
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * Add report
-     *
-     * @param Acme\CustomersBundle\Document\Report $report
-     */
-    public function addReport(\Acme\CustomersBundle\Document\Report $report)
-    {
-        $this->reports[] = $report;
-    }
-
-    /**
-     * Remove report
-     *
-     * @param Acme\CustomersBundle\Document\Report $report
-     */
-    public function removeReport(\Acme\CustomersBundle\Document\Report $report)
-    {
-        $this->reports->removeElement($report);
-    }
-
-    /**
-     * Get reports
-     *
-     * @return Doctrine\Common\Collections\Collection $reports
-     */
-    public function getReports()
-    {
-        return $this->reports;
     }
 
     /**
@@ -319,4 +278,5 @@ class Client extends BaseUser
     {
         return $this->site;
     }
+
 }

@@ -1,16 +1,16 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
+<span class="modal-content" style="padding:15px;  display:inline-block">
 <h1>Home</h1>
 {% if is_granted("IS_AUTHENTICATED_FULLY")%}
 Welcome {{app.user.username}}
+
         <div>
-    		<a href="{{ path('fos_user_security_logout')}}">Logout</a>
-    	</div>
-    {% else %}
-        <a href="{{ path('fos_user_security_login')}}">Login</a>
-        <div>
-        	<a href="{{ path('fos_user_registration_register')}}">Registration</a>
+            <input value="Send report" type="button" onclick="document.location='{{ path('acme_customers')}}'" class='btn btn-primary' >
         </div>
+    {% else %}
+
     {% endif %}
+</span>
 {% endblock %}

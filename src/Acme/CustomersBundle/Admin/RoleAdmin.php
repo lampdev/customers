@@ -16,7 +16,6 @@ class RoleAdmin extends Admin
     public function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
             ->add('role')
         ;
     }
@@ -25,7 +24,6 @@ class RoleAdmin extends Admin
     {
         $formMapper
             ->with('General')
-                ->add('id')
                 ->add('role')
             ->end()
         ;
@@ -34,7 +32,6 @@ class RoleAdmin extends Admin
     public function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->addIdentifier('role')
             ->add('_action','action', array(
                 'actions'=>array(
@@ -48,7 +45,6 @@ class RoleAdmin extends Admin
     public function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('role')
         ;
     }

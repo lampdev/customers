@@ -25,7 +25,11 @@
 	"mopa/bootstrap-bundle": "3.*@dev",
         "iphp/filestore-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "willdurand/propel-typehintable-behavior": "~1.0"
+        "willdurand/propel-typehintable-behavior": "~1.0",
+	"twbs/bootstrap": "3.0.*@dev",
+ 	"leafo/lessphp": "0.4.*@dev",
+	"oyejorge/less.php": "dev-master",
+    "twitter/bootstrap": "3.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

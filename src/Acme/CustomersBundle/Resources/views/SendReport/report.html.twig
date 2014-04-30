@@ -1,0 +1,51 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<span class="modal-content" style="padding:15px; margin:15px; display:inline-block">
+	<form action="{{ path('acme_customers') }}" method="post" {{ form_enctype(report) }} role="form">
+    <legend>Report</legend>
+	<div id='user_part'>
+   		<div class="col-md-8">
+            <div class="form-group">
+            	{{ form_row(report.description) }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+            	{{ form_row(report.file) }}
+            </div>
+        </div>
+    </div>
+    <div id='swindler_part'>
+    	<legend>Swindler info</legend>
+        <div class="col-md-4">
+        	<div class="form-group"> 
+	        	{{ form_row(report.swname) }}
+        	</div>
+        	<div class="form-group"> 
+	        	{{ form_row(report.swsurname) }}
+        	</div>
+            <div class="form-group"> 
+                {{ form_row(report.swcompany) }}
+            </div>
+            <div class="form-group"> 
+                {{ form_row(report.photo) }}
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form_row(report.swdescript) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(report.swcontacts) }}
+            </div>
+        </div>
+    </div>
+    <div class="form-group pull-right">
+        {{ form_row(report.Send) }}
+    </div>
+    {{ form_errors(report) }}
+    {{ form_widget(report._token) }}
+</span>
+
+{% endblock %}

@@ -30,10 +30,13 @@ class AppKernel extends Kernel
 
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+
+            new Acme\CustomersBundle\AcmeCustomersBundle(),
+        
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Acme\CustomersBundle\AcmeCustomersBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

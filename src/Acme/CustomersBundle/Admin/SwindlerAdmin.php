@@ -8,17 +8,19 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ReportAdmin extends Admin
+class SwindlerAdmin extends Admin
 {
   //  protected $baseRouteName = 'sonata_post';
-    protected $baseRoutePattern = 'report';
+    protected $baseRoutePattern = 'swindler';
 
     public function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('user')
+            ->add('name')
+            ->add('surname')
+            ->add('companyname')
             ->add('description')
-            ->add('docs','url')
+            ->add('photolink','url')
             ->add('topublic')
         ;
     }
@@ -27,10 +29,13 @@ class ReportAdmin extends Admin
     {
         $formMapper
             ->with('General')
-                ->add('user')
+                ->add('name')
+                ->add('surname')
+                ->add('companyname')
                 ->add('description','textarea')
+                ->add('contacts')
                 ->add('file','file',array('required' => false,'label'=>'File: (pdf/html/gif/jpeg/png)'))
-                ->add('docs','url',array('required'=>false, 'disabled'=>true))
+                ->add('photolink','url',array('required'=>false, 'disabled'=>true))
                 ->add('topublic', 'checkbox', array(
                                                 'label'     => 'Show publicly',
                                                 'required'  => false,
@@ -42,9 +47,12 @@ class ReportAdmin extends Admin
     public function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('user')
+            ->add('name')
+            ->add('surname')
+            ->add('companyname')
             ->add('description','textarea')
-            ->add('docs','url')
+            ->add('contacts')
+            ->add('photolink','url',array('asd'=>true))
             ->add('topublic', 'boolean')
             ->add('_action','action', array(
                 'actions'=>array(
@@ -58,7 +66,10 @@ class ReportAdmin extends Admin
     public function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('user')
+            ->add('name')
+            ->add('surname')
+            ->add('companyname')
+            ->add('contacts')
             ->add('topublic')
         ;
     }
